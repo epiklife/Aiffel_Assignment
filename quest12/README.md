@@ -40,10 +40,11 @@ Iteration 40000 : Loss 2874.4185
  * 소수점자리수 표기법에 대한 이해 
  
  * 열 슬라이싱방법 숙지
+```
 X = train[['year', 'month', 'day', 'hour', 'minute', 'second', 'temp', 'atemp', 'humidity']]
 y = train['count']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=7)
-
+```
 
 
 - [o] 코드가 간결한가요?
