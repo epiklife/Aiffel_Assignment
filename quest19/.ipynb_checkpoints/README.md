@@ -19,19 +19,30 @@ Quest_19. Review date_20.July.2023
 
 --------------------------------------------------
 ```python
-#이미지 비율을 유지하면서 높이를 32로 바꿀거에요\n",
-    "        # 하지만 너비를 100보다는 작게하고 싶어요\n",
-    "        target_width = min(int(width*32/height), 100)\n",
-    "        target_img_size = (target_width,32)        \n",
-    "        print('target_img_size:{}'.format(target_img_size))        \n",
-    "        img = np.array(img.resize(target_img_size)).transpose(1,0,2)\n",
-    "\n",
-    "        # 이제 높이가 32로 일정한 이미지와 라벨을 함께 출력할 수 있어요       \n",
-    "        print('display img shape:{}'.format(img.shape))\n",
-    "        print('label:{}'.format(label))\n",
-    "        display(Image.fromarray(img.transpose(1,0,2).astype(np.uint8)))"
-   ]
-  },
+  # 이미지는 버퍼를 통해 읽어오기 때문에 
+        # 버퍼에서 이미지로 변환하는 과정이 다시 필요해요
+        try:
+            img = Image.open(buf).convert('RGB')
+
+        except IOError:
+            img = Image.new('RGB', (100, 32))
+            label = '-'
+
+        # 원본 이미지 크기를 출력해 봅니다
+        width, height = img.size
+        print('original image width:{}, height:{}'.format(width, height))
+        
+        # 이미지 비율을 유지하면서 높이를 32로 바꿀거에요
+        # 하지만 너비를 100보다는 작게하고 싶어요
+        target_width = min(int(width*32/height), 100)
+        target_img_size = (target_width,32)        
+        print('target_img_size:{}'.format(target_img_size))        
+        img = np.array(img.resize(target_img_size)).transpose(1,0,2)
+
+        # 이제 높이가 32로 일정한 이미지와 라벨을 함께 출력할 수 있어요       
+        print('display img shape:{}'.format(img.shape))
+        print('label:{}'.format(label))
+        display(Image.fromarray(img.transpose(1,0,2).astype(np.uint8)))
  ```
 ------------------------------------------------
 
