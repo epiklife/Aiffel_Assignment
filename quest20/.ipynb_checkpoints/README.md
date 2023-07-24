@@ -7,10 +7,12 @@ d아이펠캠퍼스 온라인4기 피어코드리뷰 []
 
 
 ## [O] 코드가 정상적으로 동작하고 주어진 문제를 해결했나요?   
-1. 1. multiface detection을 위한 widerface 데이터셋의 전처리가 적절히 진행되었다.
+
+1. multiface detection을 위한 widerface 데이터셋의 전처리가 적절히 진행되었다.
 
  "source": [
-    "# 전처리\n",
+    "전처리\n",
+    
     "# ground truth txt와 image_file에서 image_info를 반환하는 함수 정의\n",
     "import os, cv2, time\n",
     "import tensorflow as tf\n",
@@ -63,7 +65,9 @@ d아이펠캠퍼스 온라인4기 피어코드리뷰 []
     "    return infos\n",
     "\n",
 
+
 2. SSD 모델이 안정적으로 학습되어 multiface detection이 가능해졌다.
+   
 3. 이미지 속 다수의 얼굴에 스티커가 적용되었다.
 
 "source": [
