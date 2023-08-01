@@ -140,32 +140,6 @@ This end-to-end architecture of our CRNN OCR system allows it to handle the chal
 
 In this section, we present the evaluation results of our CRNN OCR system and discuss its performance in handling text recognition tasks in unconstrained environments. We conducted extensive experiments on benchmark datasets, including the MJSynth dataset, to assess the accuracy, robustness, and generalization capabilities of our proposed system.
 
-\documentclass{article}
-\usepackage{tikz}
-
-\begin{document}
-
-\begin{figure}
-    \centering
-    \begin{tikzpicture}[node distance=2cm, auto]
-        % Nodes
-        \node [rectangle, draw] (conv) {Convolutional\\Feature Extractor};
-        \node [rectangle, draw, below of=conv] (rnn) {Recurrent\\Sequence Model};
-        \node [rectangle, draw, below of=rnn] (trans) {Transcription\\Layer};
-        \node [left=of conv] (input) {Input Image};
-        \node [right=of trans] (output) {Text Prediction};
-        
-        % Arrows
-        \draw [->] (input) -- (conv);
-        \draw [->] (conv) -- (rnn);
-        \draw [->] (rnn) -- (trans);
-        \draw [->] (trans) -- (output);
-    \end{tikzpicture}
-    \caption{CRNN OCR System Architecture}
-    \label{fig:system_architecture}
-\end{figure}
-
-\end{document}
 
 Evaluation Metrics:
 For evaluating the OCR system's performance, we employed standard evaluation metrics commonly used in text recognition tasks:
